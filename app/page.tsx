@@ -20,8 +20,14 @@ export default function HomePage() {
       <JsonLd data={[...serviceSchema(), faqSchema()]} />
       <Hero />
       <TrustBar />
-      <Services limit={homepageLimit} showViewAll />
-      <AboutPreview />
+      <div className="flex flex-col">
+        <div className="order-2 md:order-1">
+          <Services limit={homepageLimit} showViewAll />
+        </div>
+        <div className="order-1 md:order-2">
+          <AboutPreview />
+        </div>
+      </div>
       <WhyChooseUs />
       <Reviews />
       <Gallery />
