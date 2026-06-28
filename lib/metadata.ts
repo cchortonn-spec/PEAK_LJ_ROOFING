@@ -21,7 +21,7 @@ export function createMetadata({
   const shareImage = image
     ? [
         {
-          url: image,
+          url: getAbsoluteUrl(image),
           width: 1200,
           height: 630,
           alt: title,

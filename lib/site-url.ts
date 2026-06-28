@@ -1,9 +1,18 @@
 import { siteConfig } from "@/lib/config";
 
 export function getSiteUrl(): string {
-  const url =
-    process.env.NEXT_PUBLIC_SITE_URL?.trim() || siteConfig.business.website;
-  return url.replace(/\/$/, "");
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (configured) {
+    return configured.replace(/\/$/, "");
+  }
+
+  const vercelUrl = process.env.VERCEL_URL?.trim();
+  if (vercelUrl) {
+    const host = vercelUrl.replace(/^https?:\/\//, "").replace(/\/$/, "");
+    return `https://${host}`;
+  }
+
+  return siteConfig.business.website.replace(/\/$/, "");
 }
 
 export function getAbsoluteUrl(path: string): string {
