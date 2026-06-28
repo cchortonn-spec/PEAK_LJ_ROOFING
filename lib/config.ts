@@ -66,7 +66,7 @@ export const siteConfig: SiteConfig = {
     primaryColour: "#0f1f3d",
     accentColour: "#2563eb",
     logoPath: "/branding/lj-roofing-logo.png",
-    faviconPath: "/branding/lj-roofing-logo.png",
+    faviconPath: "/branding/favicon_io/favicon.ico",
   },
 
   theme: {

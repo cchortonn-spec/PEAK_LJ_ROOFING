@@ -14,12 +14,24 @@ const inter = Inter({
 });
 
 const { home } = siteConfig.pages;
+const faviconBase = siteConfig.brand.faviconPath.replace(/\/favicon\.ico$/, "");
 
-export const metadata: Metadata = createMetadata({
-  title: home.seo.title,
-  description: home.seo.description,
-  path: home.seo.path,
-});
+export const metadata: Metadata = {
+  ...createMetadata({
+    title: home.seo.title,
+    description: home.seo.description,
+    path: home.seo.path,
+  }),
+  icons: {
+    icon: [
+      { url: `${faviconBase}/favicon.ico` },
+      { url: `${faviconBase}/favicon-16x16.png`, sizes: "16x16", type: "image/png" },
+      { url: `${faviconBase}/favicon-32x32.png`, sizes: "32x32", type: "image/png" },
+    ],
+    apple: `${faviconBase}/apple-touch-icon.png`,
+  },
+  manifest: `${faviconBase}/site.webmanifest`,
+};
 
 export default function RootLayout({
   children,
@@ -34,7 +46,6 @@ export default function RootLayout({
     >
       <head>
         <JsonLd data={localBusinessSchema()} />
-        <link rel="icon" href={siteConfig.brand.faviconPath} />
       </head>
       <body className="min-h-full flex flex-col font-sans">
         <a
