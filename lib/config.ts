@@ -108,7 +108,7 @@ export const siteConfig: SiteConfig = {
       "roofers chesterfield",
       "roofers rotherham",
     ],
-    ogImage: "/branding/lj-roofing-logo.png",
+    ogImage: "/branding/opengraph-image.png",
   },
 
   navigation: [

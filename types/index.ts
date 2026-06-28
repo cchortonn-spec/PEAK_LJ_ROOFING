@@ -107,6 +107,7 @@ export interface SEOConfig {
   title: string;
   description: string;
   keywords: string[];
+  /** Share image path under /public (1200×630 recommended) */
   ogImage: string;
 }
 
